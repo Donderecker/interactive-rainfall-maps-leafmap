@@ -181,6 +181,27 @@ El archivo generado contiene la configuración del mapa, capas incorporadas y el
 
 ---
 
+> [!WARNING]
+> **Consideración importante sobre las teselas raster**
+>
+> Al incorporar archivos raster mediante `leafmap.add_raster()`, LeafMap utiliza `localtileserver` para generar las teselas necesarias para la visualización interactiva del mapa.
+>
+> Esto implica que las capas raster no quedan almacenadas directamente dentro del archivo HTML exportado, sino que dependen del servidor local de teselas generado durante la ejecución del código.
+>
+> ```python
+> r.add_raster(
+>     "dem.tif",
+>     palette="terrain",
+>     layer_name="elevacion"
+> )
+>
+> r.to_html("mapa_ejemplo.html")
+> ```
+>
+> El archivo HTML generado conserva la estructura del mapa y la configuración de las capas, pero requiere que el servicio local de teselas continúe activo para cargar correctamente la información raster.
+>
+> Por esta razón, al cerrar la sesión de trabajo donde se ejecuta Python (por ejemplo, Anaconda Prompt, Jupyter Lab u otro entorno), el servidor generado por `localtileserver` deja de funcionar y las teselas raster pueden dejar de visualizarse en el mapa exportado.
+
 # Métodos de clasificación cartográfica
 
 Para representar variables cuantitativas mediante simbología graduada es importante seleccionar un método de clasificación adecuado según la distribución de los datos.
