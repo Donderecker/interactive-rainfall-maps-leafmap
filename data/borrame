@@ -1,7 +1,5 @@
-### imagen <strong>DEM</strong> mediante <strong>Earth Engine</strong>
 
-
-## 💻 Código de Earth Engine (JavaScript)
+Código de Earth Engine (JavaScript) para descargar DEM
 
 ```javascript
 // 1. Cargar el conjunto de datos HydroSHEDS DEM
