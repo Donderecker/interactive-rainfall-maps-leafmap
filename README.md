@@ -2,6 +2,27 @@
 
 LeafMap permite generar mapas interactivos en Python mediante la integración de información geoespacial vectorial, raster y servicios de mapas base. Esta herramienta facilita la visualización, exploración y publicación de datos espaciales mediante interfaces cartográficas interactivas.
 
+La herramienta SplitMap permite visualizar simultáneamente dos capas raster dentro de un mismo mapa interactivo.
+
+En este análisis se utiliza para comparar:
+
+| Panel izquierdo | Panel derecho |
+|---|---|
+| Precipitación 23 junio 2023 | Precipitación 24 junio 2023 |
+
+Además, se incorpora la capa vectorial de cuencas hidrográficas como referencia espacial para interpretar la distribución de las precipitaciones.
+
+El siguiente GIF muestra el resultado del mapa comparativo generado con SplitMap, donde se observa la variación espacial de las precipitaciones entre dos fechas utilizando datos satelitales GPM y capas de cuencas hidrográficas.
+
+![SplitMap de precipitaciones GPM](images/splitmap.gif)
+
+El resultado corresponde a un mapa interactivo donde es posible:
+
+- comparar cambios espaciales entre fechas.
+- explorar valores de precipitación.
+- visualizar la relación entre precipitaciones y unidades hidrográficas.
+- exportar el resultado como archivo HTML.
+
 ---
 
 # Creación del mapa interactivo
@@ -258,26 +279,6 @@ Esta información permite complementar la interpretación visual del mapa con va
 
 ---
 
-# Generación del mapa comparativo mediante SplitMap
-
-La herramienta SplitMap permite visualizar simultáneamente dos capas raster dentro de un mismo mapa interactivo.
-
-En este análisis se utiliza para comparar:
-
-| Panel izquierdo | Panel derecho |
-|---|---|
-| Precipitación 23 junio 2023 | Precipitación 24 junio 2023 |
-
-Además, se incorpora la capa vectorial de cuencas hidrográficas como referencia espacial para interpretar la distribución de las precipitaciones.
-
-El resultado corresponde a un mapa interactivo donde es posible:
-
-- comparar cambios espaciales entre fechas.
-- explorar valores de precipitación.
-- visualizar la relación entre precipitaciones y unidades hidrográficas.
-- exportar el resultado como archivo HTML.
-
----
 
 # Resultado final
 
