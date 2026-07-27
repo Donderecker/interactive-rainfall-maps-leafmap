@@ -1,1 +1,39 @@
+### imagen <strong>DEM</strong> mediante <strong>Earth Engine</strong>
 
+
+## 💻 Código de Earth Engine (JavaScript)
+
+```javascript
+// 1. Cargar el conjunto de datos HydroSHEDS DEM
+var dataset = ee.Image("WWF/HydroSHEDS/03CONDEM");
+
+// Centrar la vista del mapa (Coordenadas de ejemplo: Longitud -70, Latitud -35)
+Map.setCenter(-70, -35);
+
+// 2. Seleccionar la banda de elevación
+var elev = dataset.select("b1");
+
+// Visualización predeterminada (escala de grises)
+Map.addLayer(elev, {min: -440, max: 8527}, "Elevaciones (Grises)");
+
+// 3. Recortar por la geometría definida por el usuario
+var filteredImage = elev.clip(geometry);
+
+// 4. Definición de la paleta de colores
+var palette = [
+  '00007F', '0000FF', '007FFF', '00FFFF', '7FFF7F', 'FFFF00', 'FF7F00', 'FF0000', '7F0000'
+];
+
+// Visualizar el DEM con la paleta de colores
+Map.addLayer(filteredImage, {min: -440, max: 8527, palette: palette}, 'Elevaciones (Color)');
+
+// 5. Exportar imagen a Google Drive
+Export.image.toDrive({
+  image: filteredImage,
+  description: 'slope_image', // Nombre de la tarea / archivo
+  region: geometry,           // Polígono/Límite de corte
+  scale: 90,                  // Resolución espacial en metros
+  crs: "EPSG:32719",          // WGS 84 / UTM Zona 19S
+  folder: "Datos_DEM",        // Carpeta de destino en Google Drive
+  maxPixels: 1E13             // Límite máximo de píxeles
+});
