@@ -200,7 +200,7 @@ El archivo generado contiene la configuración del mapa, capas incorporadas y el
 >
 > El archivo HTML generado conserva la estructura del mapa y la configuración de las capas, pero requiere que el servicio local de teselas continúe activo para cargar correctamente la información raster.
 >
-> Por esta razón, al cerrar la sesión de trabajo donde se ejecuta Python (por ejemplo, Anaconda Prompt, Jupyter Lab u otro entorno), el servidor generado por `localtileserver` deja de funcionar y las teselas raster pueden dejar de visualizarse en el mapa exportado.
+> Por esta razón, al cerrar la sesión de trabajo donde se ejecuta Python, el servidor generado por `localtileserver` deja de funcionar y las teselas raster pueden dejar de visualizarse en el mapa exportado.
 
 # Métodos de clasificación cartográfica
 
